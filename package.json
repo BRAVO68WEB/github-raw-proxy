@@ -1,0 +1,42 @@
+{
+  "name": "gh-raw-proxy",
+  "version": "1.0.0",
+  "description": "Github Raw Proxy",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "run-p dev:*",
+    "dev:wrangler": "wrangler pages dev dist --live-reload",
+    "dev:esbuild": "esbuild --bundle index.ts --format=esm --watch --outfile=dist/_worker.js",
+    "build": "esbuild --bundle index.ts --format=esm --outfile=dist/_worker.js",
+    "deploy": "wrangler pages publish dist"
+  },
+  "keywords": [
+    "esbuild",
+    "wrangler",
+    "cloudflare",
+    "worker",
+    "typescript",
+    "github",
+    "raw",
+    "proxy"
+  ],
+  "author": {
+    "name": "Jyotirmoy",
+    "email": "hi@b68.dev",
+    "url": "https://b68.dev"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.5.2",
+    "esbuild": "^0.19.2",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.1.6",
+    "wrangler": "^3.5.1"
+  },
+  "dependencies": {
+    "@esbuild-kit/esm-loader": "^2.5.5",
+    "@hono/node-server": "^1.1.1",
+    "hono": "^3.5.0"
+  }
+}
